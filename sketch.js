@@ -2,14 +2,22 @@ let bodyA;
 let bodyB;
 let bodyC;
 
+let eventA;
+let eventB;
+let eventC;
+
 let typeA = 0;
 let typeB = 1;
 let typeC = 2;
 
-const G = 2.4;
+const G = 1.6;
 
 function setup() {
   createCanvas(800, 800);
+
+  eventA = new Timer(300, 8000);
+  eventB = new Timer(8000, 8000);
+  eventC = new Timer(16000, 8000);
 
   bodyA = new Body(width / 2, height * 1/5, 10, typeA);
   bodyB = new Body(width / 2, height * 4/5, 10, typeB);
@@ -20,10 +28,18 @@ function setup() {
 }
 
 function draw() {
-  background(220, 40);
+  background(220, 60);
 
-  stroke(0);
-  rect(width/2, height*1/5,1, height*3/5);
+  eventA.count();
+  eventB.count();
+  eventC.count();
+
+  stroke(0); 
+  strokeWeight(eventC.fadein);
+  line(width / 2, height * 1 / 5, width / 2, height * 4 / 5);
+
+  textAlign(CENTER, CENTER);
+  text(nf(millis()/1000, 1, 1), width/2, 60);
 
   bodyA.attract(bodyB);
   bodyA.attract(bodyC);

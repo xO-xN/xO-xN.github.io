@@ -30,18 +30,18 @@ class Body {
     show() {   
       if (this.type == typeA) {
         //yellow
-        fill(255, 236, 92);
-        strokeWeight(0.4);
+        fill(255, 236, 92, eventB.fadein*255);
+        strokeWeight(0.4*eventB.fadein);
         stroke(0);
       } else if (this.type == typeB) {
         //green
-        fill(180, 207, 102);
-        strokeWeight(0.4);
+        fill(180, 207, 102, eventB.fadein*255);
+        strokeWeight(0.4*eventB.fadein);
         stroke(0);
       } else if (this.type == typeC) {
         //red
-        fill(255, 90, 51);
-        strokeWeight(1);
+        fill(255, 90, 51, eventA.fadein*255);
+        strokeWeight(eventA.fadein);
         stroke(0);
       }
       circle(this.pos.x, this.pos.y, this.r);

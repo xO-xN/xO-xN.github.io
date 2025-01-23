@@ -1,4 +1,5 @@
 function creditdisplay() {
+    textAlign(LEFT, BASELINE);
     noStroke();
     fill(0);
     textSize(20);
